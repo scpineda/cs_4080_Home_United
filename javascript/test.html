@@ -1,0 +1,46 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<body style="background-color:black;color:white;">
+		<h2>Average elapsed time to multiply two arrays of size 29,997,529 and store their result into another array
+		<br>Note: This operation is performed 100 times to gather 100 data points</h2>
+		<p id="elapsedTime"></p>
+		
+		<h2>Average time per operation on element in array (average elapsed time/array size)</h2>
+		<p id="averageTime"></p>
+		
+	</body>
+	
+	<script>
+		const len = 29997529;
+		
+		var elapsedTimeDataArray = new Array(100);
+		
+		var i = 0;
+		var array1 = new Array(len);
+			array1.fill(5);
+		var array2 = new Array(len);
+			array2.fill(2);
+		var result = new Array(len);
+		var j = 0;
+		
+		while(i < elapsedTimeDataArray.length){
+			const milli1 = performance.now();
+			while(j < len){
+				result[i] = array1[i] + array2[i];
+				j++;
+			}
+			const milli2 = performance.now();
+			elapsedTimeDataArray[i] = (milli2 - milli1);
+			i++;
+		}
+		
+		var sum = 0;
+		var x;
+		for(x in elapsedTimeDataArray){
+			sum += elapsedTimeDataArray[x];
+		}
+		
+		$('#elapsedTime').html(sum/elapsedTimeDataArray.length);
+		$('#averageTime').html((sum/elapsedTimeDataArray.length)/result.length);
+	</script>
+</html>

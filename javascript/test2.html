@@ -1,0 +1,55 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<body style="background-color:black;color:white;">
+		<h2>Average elapsed time to multiply two 2D arrays of size 5477x5477 and store their result into another 2D array
+		<br>Note: This operation is performed 100 times to gather 100 data points</h2>
+		<p id="matrixelapsedtime"></p>
+		
+		<h2>Average time per operation on element in 2D array (average elapsed time/array size)</h2>
+		<p id="matrixaverageTime"></p>
+	</body>
+	
+	<script>
+		const matrixLen = 5477;
+		var elapsedTimeMatrixArray = new Array(100);
+
+		var matrix1 = new Array(matrixLen)
+        for(var i = 0;i<matrixLen;i++){matrix1[i] = new Array(matrixLen);}
+		var matrix2 = new Array(matrixLen)
+        for(var i = 0;i<matrixLen;i++){matrix2[i] = new Array(matrixLen);}
+		var mresult = new Array(matrixLen)
+        for(var i = 0;i<matrixLen;i++){mresult[i] = new Array(matrixLen);}
+		
+        for(var i = 0;i<matrixLen;i++){
+			for(var j = 0;j<matrixLen;j++){
+				matrix1[i][j] = 5;
+				matrix2[i][j] = 2;
+			}
+		}
+		var x = 0;
+		var y = 0;
+		var z = 0;
+		while(x < elapsedTimeMatrixArray.length){
+			const milli3 = performance.now();
+			while(y < matrixLen){
+				while(z < matrixLen){
+					mresult[y][z] = matrix1[y][z] + matrix2[y][z];
+					z++;
+				}
+				y++;
+			}
+			const milli4 = performance.now();
+			elapsedTimeMatrixArray[x] = (milli4 - milli3);
+			x++;
+		}
+		
+		var msum = 0;
+		var s;
+		for(s in elapsedTimeMatrixArray){
+			msum += elapsedTimeMatrixArray[s];
+		}
+		
+		$('#matrixelapsedtime').html(msum/elapsedTimeMatrixArray.length);
+		$('#matrixaverageTime').html((msum/elapsedTimeMatrixArray.length)/(matrixLen*matrixLen));
+	</script>
+</html>
