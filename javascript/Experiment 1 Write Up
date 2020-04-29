@@ -35,7 +35,7 @@ to add two 1D arrays than it takes to add two 2D arrays. It also took 67x longer
 
 CONCLUSION
 Mostly likely the reason for such a discrepency is that the 2D array, depite its dimensions equaling the total size of a 1D
-array, is actually much smaller in memeory than a 1D array. I suspect that the 2D array is actually stored in memory as a 1D
+array, is actually much smaller in memory than a 1D array. I suspect that the 2D array is actually stored in memory as a 1D
 array of size 5,477 while the actual 1D array in test.html is of size 29,997,529. Indeed, in Javascript, 2D arrays are 
 implemented as an array of arrays. So when operations are performed between two arrays, for test.html, that operation is
 done for two large arrays of size 29,997,529 but for test2.html the operation is performed between two smaller arrays of size
