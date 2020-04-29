@@ -1,0 +1,50 @@
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<body style="background-color:black;color:white;">
+		<h2>Average time to perform binary search on 1D Array of size 1875000
+		<br>Note: This operation is performed 100 times to gather 100 data points</h2>
+		<p id="time"></p>
+
+	</body>
+	<script>
+		/*
+			Code source came form w3resource.com
+			https://www.w3resource.com/javascript-exercises/javascript-array-exercise-18.php
+		*/
+		const items = new Array(1875000);
+		const val = 16070104;
+		var dataArray = new Array(100);
+
+		for(var i = 0; i < items.length; i++){items[i] = i;}
+
+		var firstIndex  = 0,
+        lastIndex   = items.length - 1,
+        middleIndex = Math.floor((lastIndex + firstIndex)/2);
+		var x = 0;
+
+		while(x < dataArray.length){
+			const milli1 = performance.now();
+			while(items[middleIndex] != val && firstIndex < lastIndex)
+			{
+			   if (val < items[middleIndex])
+				{
+					lastIndex = middleIndex - 1;
+				} 
+			  else if (val > items[middleIndex])
+				{
+					firstIndex = middleIndex + 1;
+				}
+				middleIndex = Math.floor((lastIndex + firstIndex)/2);
+			}
+			const milli2 = performance.now();
+			dataArray[x] = (milli2-milli1);
+			x++;
+		}
+
+		var sum = 0;
+		var f;
+		for(f in dataArray){sum += dataArray[f];}
+
+		$('#time').html(sum/dataArray.length);
+	</script>
+<html>
