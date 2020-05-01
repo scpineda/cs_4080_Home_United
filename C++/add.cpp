@@ -14,70 +14,71 @@ const int N = 800;
 
 void execution_time(int arr1[], int arr2[], int n);
 void add_array(int arr1[], int arr2[]);
-
+//int BinarySearch(int arr1[], int left, int right, int x);
+void returnMiddleValue(int arr[], int n);
 
 int main()
 {
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Adding 1D arrays
-    int n = 599999;
+    int n = 20000;
     
     int arr1[n];
     int arr2[n];
     
-    //int arr3[N][N];
-    //int arr4[N][N];
+    int arr3[N][N];
+    int arr4[N][N];
     
     srand((unsigned)time(0));
     
-    cout << "Random input array1: " << endl;
+    cout << "Generating first 1D array... " << endl;
     
     for(int i = 0; i < n; i++)
     {
         arr1[i] = (rand() % 100) + 1;
         //cout << arr1[i] << " ";
     }
-    cout<<endl;
     
     
-    cout << "Random input array2: " << endl;
+    
+    cout << "Generating first 1D array... " << endl;
     
     for(int i = 0; i < n; i++)
     {
         arr2[i] = (rand() % 100) + 1;
         //cout << arr2[i] << " ";
     }
-    cout<<endl;
+    
     
     execution_time(arr1, arr2, n);
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //Adding 2D arrays
     
-    cout <<"Random input first 2D array: " <<endl;
+    cout <<"Generating first 2D array... " <<endl;
     for(int i = 0; i < N; i++)
     {
         for(int j = 0; j < N; j++)
         {
             arr3[i][j] = (rand() % 100) + 1;
-            cout << arr3[i][j] << " ";
+            //cout << arr3[i][j] << " ";
         }
-        cout << endl;
+        //cout << endl;
     }
-    cout<<endl;
+   
     
-    cout <<"Random input second 2D array: " <<endl;
+    cout <<"Generating second 2D array..." <<endl;
     for(int i = 0; i < N; i++)
     {
         for(int j = 0; j < N; j++)
         {
             arr4[i][j] = (rand() % 100) + 1;
-            cout << arr4[i][j] << " ";
+            //cout << arr4[i][j] << " ";
         }
-        cout << endl;
+        //cout << endl;
     }
-    cout << endl;
+    //cout << endl;
     
     auto start1 = std::chrono::high_resolution_clock::now();
     
@@ -93,9 +94,21 @@ int main()
     
     auto t1 = std::chrono::duration_cast<std::chrono::nanoseconds> (end1 - start1).count();
     
-    cout << "Time for adding two 2D arrays size 800 x 800: " << t1 << endl;
+    cout << "Time for adding two 2D arrays size "<< N <<" x "<< N <<" :" << t1 << endl;
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    auto start2 = std::chrono::high_resolution_clock::now();
+    
+    //BinarySearch(arr, 0, n-1, 13);
+    returnMiddleValue(arr1, n);
+
+    auto end2 = std::chrono::high_resolution_clock::now();
+    
+    auto t2 = std::chrono::duration_cast<std::chrono::nanoseconds> (end2 - start2).count();
+    
+    cout << "Time for returning middle value in this array: " << t2 << endl;
+     
     
     return 0;
 }
@@ -122,4 +135,37 @@ void execution_time(int arr1[], int arr2[], int n)
     
     cout << "Time for adding two 1D arrays: " << t << endl;
     
+}
+/*
+int BinarySearch(int arr[], int left, int right, int x)
+{
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+        
+        if(arr[mid] == x)
+            return mid;
+        if(arr[mid] > x)
+            BinarySearch(arr, left, mid - 1, x);
+       if(arr[mid] < x)
+            BinarySearch(arr, mid + 1, right, x);
+    }
+    
+    return -1;
+}
+*/
+
+void returnMiddleValue(int arr[], int n)
+{
+    double result;
+    int mid = n / 2;
+    
+    if(mid % 2 == 0)
+    {
+        result = (mid + (mid+1))/2;
+    }
+    if(mid % 2 != 0)
+    {
+        result = mid;
+    }
 }
