@@ -1,0 +1,4 @@
+My responsible:
+- C++ source code and C++ experiments
+- Reseach of C++ unique array characteristics compare to other programming languages (Python, Java, JavaScript)
+- C++ slides in presentation
