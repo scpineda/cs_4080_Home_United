@@ -41,7 +41,7 @@ int main()
     
     
     
-    cout << "Generating first 1D array... " << endl;
+    cout << "Generating second 1D array... " << endl;
     
     for(int i = 0; i < n; i++)
     {
