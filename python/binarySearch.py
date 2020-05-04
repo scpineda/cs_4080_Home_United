@@ -10,7 +10,7 @@ def binary_search(arr, start, end, val):
         elif arr[mid] < val:
             start = mid + 1
         # val might be on left
-        elif arr[mid] > val:
+        else:
             end = mid - 1
     # value not found
     return -1
@@ -35,8 +35,8 @@ def average_one_dimension():
         sum_of_run = 0
         for i in range(10):
             sum_of_run += one_dimension_test(val)
-            if i is 9:
-                print("Average of 10 runs for one-dimensional array:", sum_of_run/10, "nanoseconds")
+            if i == 9:
+                print("Average of 10 runs for one-dimensional array of size", val, ":", sum_of_run/10, "nanoseconds")
 
 
 average_one_dimension()
