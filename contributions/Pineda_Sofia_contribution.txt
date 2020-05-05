@@ -1,0 +1,14 @@
+Sofia Pineda Contributions:
+
+* All Java experiments
+* All Java documentation
+* All Java presentation
+* Hosted Presentation
+
+Git Commits (All in Java Folder):
+* ExperimentDocumentation.pdf
+* ExperimentDocumentation2.pdf
+* Search.java
+* Tests.java
+* results1.png
+* results2.png
