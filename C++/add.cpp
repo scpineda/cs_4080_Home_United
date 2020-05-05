@@ -14,7 +14,6 @@ const int N = 800;
 
 void execution_time(int arr1[], int arr2[], int n);
 void add_array(int arr1[], int arr2[]);
-//int BinarySearch(int arr1[], int left, int right, int x);
 void returnMiddleValue(int arr[], int n);
 
 int main()
@@ -42,7 +41,7 @@ int main()
     
     
     
-    cout << "Generating first 1D array... " << endl;
+    cout << "Generating second 1D array... " << endl;
     
     for(int i = 0; i < n; i++)
     {
@@ -136,24 +135,6 @@ void execution_time(int arr1[], int arr2[], int n)
     cout << "Time for adding two 1D arrays: " << t << endl;
     
 }
-/*
-int BinarySearch(int arr[], int left, int right, int x)
-{
-    while (left <= right)
-    {
-        int mid = (left + right) / 2;
-        
-        if(arr[mid] == x)
-            return mid;
-        if(arr[mid] > x)
-            BinarySearch(arr, left, mid - 1, x);
-       if(arr[mid] < x)
-            BinarySearch(arr, mid + 1, right, x);
-    }
-    
-    return -1;
-}
-*/
 
 void returnMiddleValue(int arr[], int n)
 {
