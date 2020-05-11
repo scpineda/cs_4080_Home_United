@@ -1,0 +1,12 @@
+PAPER
+--------------------------------------------------------------------------------
+Wrote the Abstract of the project report
+Wrote Javascript sections for all parts of project report
+Presented Javascript array properties and experiments for project demo
+
+CODE
+--------------------------------------------------------------------------------
+Designed and performed all experiments for Javascript in HTML+Javascript
+	test.html, test2.html, & test3.html
+Did write-up + graphing for all Javascript experiments
+All git commits under javascript folder
