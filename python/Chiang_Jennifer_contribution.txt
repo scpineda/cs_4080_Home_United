@@ -1,7 +1,0 @@
-Responsible for:
--python source code tests and research(how arrays in python are unique compared to the other three programming languages)
--python slides in project presentation
-
-Reason for infrequent commits:
--committed on private repository when testing code for test1 and test2 then pushed all code in python folder
--worked on research papers in google docs so work was trackable to members
