@@ -1,5 +1,8 @@
   
 Responsible for:
+-future work & conclusion in project doc
+-python related project doc sections
+-revision to experiment section in project doc
 -python source code tests and research(how arrays in python are unique compared to the other three programming languages)
 -python slides in project presentation
 
